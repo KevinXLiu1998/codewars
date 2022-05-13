@@ -1,0 +1,45 @@
+// Return an array containing the numbers from 1 to N, where N is the parametered value.
+
+// Replace certain values however if any of the following conditions are met:
+
+// If the value is a multiple of 3: use the value "Fizz" instead
+// If the value is a multiple of 5: use the value "Buzz" instead
+// If the value is a multiple of 3 & 5: use the value "FizzBuzz" instead
+// N will never be less than 1.
+
+
+
+function fizzbuzz(n) {
+    3
+      let arr = []
+    4
+      for (let i = 1; i <= n; i++) {
+    5
+        arr.push(i)
+    6
+      }
+    7
+      return arr.map(num => {
+    8
+        if (num % 3 === 0 && num % 5 === 0) {
+    9
+          return 'FizzBuzz'
+    10
+        } else if (num % 3 === 0) {
+    11
+          return 'Fizz'
+    12
+        } else if (num % 5 === 0) {
+    13
+          return 'Buzz'
+    14
+        } else {
+    15
+          return num
+    16
+        }
+    17
+      })
+    18
+    }
+    19
