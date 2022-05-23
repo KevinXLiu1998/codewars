@@ -1,0 +1,14 @@
+// Task
+// Write a function that accepts str string and key number and returns an array of integers representing encoded str.
+
+// Input / Output
+// The str input string consists of lowercase characters only.
+// The key input number is a positive integer.
+
+
+function encode(str,  n) {
+  const letters = 'abcdefghijklmnopqrstuvwxyz'.split('')
+  let arr = str.split('').map(letter => letters.indexOf(letter) + 1)
+  const key = n.toString().repeat(100).split('').map(num => Number(num))
+  return arr.map((num, index) => num + key[index])
+}
