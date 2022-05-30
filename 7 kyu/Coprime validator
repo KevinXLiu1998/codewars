@@ -1,0 +1,15 @@
+// Write a program to determine if the two given numbers are coprime. A pair of numbers are coprime if their greatest shared factor is 1.
+
+// The inputs will always be two positive integers between 2 and 99.
+
+
+function isCoprime(x, y) {
+  let coprime = true
+  for (let i = 2; i <= Math.max(x, y); i++) {
+    if (x % i === 0 && y % i === 0) {
+      coprime = false
+      break
+    }
+  }
+  return coprime
+}
