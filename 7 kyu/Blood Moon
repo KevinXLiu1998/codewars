@@ -1,0 +1,11 @@
+// Alan is going to watch the Blood Moon (lunar eclipse) tonight for the first time in his life. But his mother, who is a history teacher, thinks the Blood Moon comes with an evil intent. The ancient Inca people interpreted the deep red coloring as a jaguar attacking and eating the moon. But who believes in Inca myths these days? So, Alan decides to prove to her mom that there is no jaguar. How? Well, only little Alan knows that. For now, he needs a small help from you. Help him solve the following calculations so that he gets enough time to prove it before the eclipse starts.
+
+function bloodMoon(r){
+  const ae = (r * Math.sqrt(2))/2
+  const af = ae * Math.sqrt(2)
+  const agf = (af/2) ** 2 * Math.PI/2
+  const ahfe = ae ** 2 * Math.PI/4
+  const afe = 1/2 * ae ** 2
+  const ahf = ahfe - afe
+  return agf - ahf
+}
