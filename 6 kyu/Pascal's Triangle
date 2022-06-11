@@ -1,0 +1,18 @@
+// Here you will create the classic Pascal's triangle.
+// Your function will be passed the depth of the triangle and your code has to return the corresponding Pascal's triangle up to that depth.
+
+function pascal(depth) {
+  let result = [[1]]
+  let row = [1, 1]
+  for (let i = 1; i < depth; i++) {
+    result.push(row)
+    let newRow = []
+    for (let j = 0; j < row.length - 1; j++) {
+      newRow.push(row[j] + row[j + 1])
+    }
+    newRow.unshift(1)
+    newRow.push(1)
+    row = newRow
+  }
+  return result
+}
