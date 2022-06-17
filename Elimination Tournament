@@ -1,0 +1,24 @@
+// In this Kata you will be given an array (or another language-appropriate collection) representing contestant ranks. You must eliminate contestant in series of rounds comparing consecutive pairs of ranks and store all initial and intermediate results in an array.
+
+// During one round, the lowest rank of a pair is eliminated while the highest proceeds to the next round. This goes on until one contestant only is left. If the number of contestants is odd, the last one of the current array becomes the first of the next round.
+
+// At the end of the competition, return the results of all the rounds in the form of array of arrays.
+
+const tourney = array => {
+  const results = [array]
+  let counter = 0
+  while (results[counter].length > 1) {
+    let nextRound = []
+    let prevArr = results[counter]
+    if (prevArr.length % 2 === 1) {
+      nextRound.push(prevArr[prevArr.length - 1])
+      prevArr = prevArr.slice(0, prevArr.length - 1)
+    }
+    for (let i = 0; i < prevArr.length; i += 2) {
+      nextRound.push(Math.max(prevArr[i], prevArr[i + 1]))
+    }
+    results.push(nextRound)
+    counter ++
+  }
+  return results
+}
