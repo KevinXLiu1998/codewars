@@ -1,0 +1,46 @@
+// Check if given chord is minor or major.
+
+// Rules:
+
+// Basic minor/major chord have three elements.
+
+// Chord is minor when interval between first and second element equals 3 and between second and third -> 4.
+
+// Chord is major when interval between first and second element equals 4 and between second and third -> 3.
+
+// In minor/major chord interval between first and third element equals... 7.
+
+// There is a preloaded list of the 12 notes of a chromatic scale built on C. This means that there are (almost) all allowed note' s names in music.
+
+// notes = ['C', ['C#', 'Db'], 'D', ['D#', 'Eb'], 'E', 'F', ['F#', 'Gb'], 'G', ['G#', 'Ab'], 'A', ['A#', 'Bb'], 'B']
+
+// Note that e. g. 'C#' - 'C' = 1, 'C' - 'C#' = 1, 'Db' - 'C' = 1 and 'B' - 'C' = 1.
+
+// Input: String of notes separated by whitespace, e. g. 'A C# E'
+
+// Output: String message: 'Minor', 'Major' or 'Not a chord'.
+
+function minorOrMajor(chord){
+  const arr = chord.split(' ')
+  if (arr.length !== 3) {
+    return 'Not a chord'
+  }
+  const deg = arr.map(note => {
+    if (!notes.includes(note)) {
+      for (let i = 0; i < notes.length; i++) {
+        if (notes[i].includes(note)) {
+          return i
+          break
+        }
+      }
+    }
+    return notes.indexOf(note)
+  })
+  if ((deg[2] - deg[0] === 7 && deg[1] - deg[0] === 4) || (deg[0] - deg[2] === 5 && deg[0] - deg[1] === 8) || (deg[0] - deg[2] === 5 && deg[1] - deg[0] === 4)) {
+    return 'Major'
+  } else if ((deg[2] - deg[0] === 7 && deg[1] - deg[0] === 3) || (deg[0] - deg[2] === 5 && deg[0] - deg[1] === 9) || (deg[0] - deg[2] === 5 && deg[1] - deg[0] === 3)) {
+    return 'Minor'
+  } else {
+    return 'Not a chord'
+  }
+}
